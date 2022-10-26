@@ -1,5 +1,8 @@
 import React from 'react';
+import BestCard from './BestCard';
 import ChooseUs from './ChooseUs';
+import ContactUs from './ContactUs';
+import Footer from './Footer';
 
 const Home = () => {
     return (
@@ -16,6 +19,9 @@ const Home = () => {
  
             </div>
             <ChooseUs></ChooseUs>
+            <BestCard></BestCard>
+            <ContactUs></ContactUs>
+            <Footer></Footer>
     </div>
 
     );

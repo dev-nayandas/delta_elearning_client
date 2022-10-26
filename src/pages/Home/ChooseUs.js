@@ -2,50 +2,17 @@ import React from 'react';
 
 const ChooseUs = () => {
     return (
-        <div className='mt-5 flex'>
-           <div className="card w-96 bg-base-100 shadow-xl">
-  <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
-  <div className="card-body">
-    <h2 className="card-title">
-      Shoes!
-      <div className="badge badge-secondary">NEW</div>
-    </h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div className="card-actions justify-end">
-      <div className="badge badge-outline">Fashion</div> 
-      <div className="badge badge-outline">Products</div>
+        <div className='mt-5'>
+        <div className="hero min-h-screen bg-base-200">
+  <div className="hero-content flex-col lg:flex-row-reverse">
+    <img src="https://images.pexels.com/photos/5212339/pexels-photo-5212339.jpeg?auto=compress&cs=tinysrgb&w=600" />
+    <div>
+      <h1 className="text-5xl font-bold">Countries largest E-Learning Platfrom</h1>
+      <p className="py-6">We offer differrent types of valuable courses. Like java, phython, c#, c++ etc. out mentors are highly skill full.</p>
+      <button className="btn btn-primary">Enroll Now</button>
     </div>
   </div>
 </div>
-           <div className="card w-96 bg-base-100 shadow-xl">
-  <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
-  <div className="card-body">
-    <h2 className="card-title">
-      Shoes!
-      <div className="badge badge-secondary">NEW</div>
-    </h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div className="card-actions justify-end">
-      <div className="badge badge-outline">Fashion</div> 
-      <div className="badge badge-outline">Products</div>
-    </div>
-  </div>
-</div>
-           <div className="card w-96 bg-base-100 shadow-xl">
-  <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
-  <div className="card-body">
-    <h2 className="card-title">
-      Shoes!
-      <div className="badge badge-secondary">NEW</div>
-    </h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div className="card-actions justify-end">
-      <div className="badge badge-outline">Fashion</div> 
-      <div className="badge badge-outline">Products</div>
-    </div>
-  </div>
-</div>
-
         </div>
     );
 };

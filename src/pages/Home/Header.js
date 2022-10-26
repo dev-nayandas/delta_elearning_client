@@ -1,5 +1,7 @@
 import React from 'react';
-import logo from '../../Images/logo.png'
+import { Link } from 'react-router-dom';
+import logo from '../../Images/logo.png';
+import './Header.css'
 
 const Header = () => {
     return (
@@ -9,14 +11,19 @@ const Header = () => {
           <img src={logo} />
         </div>
       
-          <a className="btn btn-ghost normal-case text-xl">Delta E-Learning Hub</a>
+          <Link className="btn btn-ghost normal-case text-xl">Delta E-Learning Hub</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
-            <li><a>Courses</a></li>
+            {/* <li><a>Courses</a></li>
             <li><a>FAQ</a></li>
             <li><a>BLOG</a></li>
-            <li><a>Theme</a></li>
+            <li><a>Theme</a></li> */}
+            <Link className='link' to='/courses'>Courses</Link>
+            <Link className='link' to='/faq'>FAQ</Link>
+            <Link className='link' to='/blog'>Blog</Link>
+            <Link className='link' to='/theme'>Theme</Link>
+            <Link className='link' to='/login'>Login</Link>
           </ul>
         </div>
         <div className="navbar-end">
