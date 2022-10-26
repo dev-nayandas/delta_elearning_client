@@ -1,7 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../../Context/UserContext';
+
 
 const Register = () => {
+  const {user, googleSignIn,createUser } = useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
+  const handleGoogleSubmit = () =>{
+   
+    console.log('hello')
+    googleSignIn(googleProvider)
+    .then(result =>{
+      const user = result.user;
+      console.log(user.email)
+    })
+    .catch(error =>{
+      console.error(error);
+    })
+  }
+  
+  // console.log(createUser)
     const handleRegister = event =>{
         event.preventDefault();
         const form = event.target;
@@ -9,9 +27,18 @@ const Register = () => {
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name,photoURL,email,password)
+        // console.log(name,photoURL,email,password);
+        createUser(email, password)
+        .then(result=>{
+          const user = result.user;
+     
+          console.log(user)
+        })
+        .catch(error =>{
+          console.error(error);
+        })
 
-
+        form.reset()
     }
     return (
        <div>
@@ -22,7 +49,7 @@ const Register = () => {
             <div className="card-body">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Nmae</span>
+                  <span className="label-text">Name</span>
                 </label>
                 <input type="text" name='name' placeholder="name" className="input input-bordered" />
               </div>
@@ -57,7 +84,7 @@ const Register = () => {
         
       </form>
         
-      <button className="btn btn-primary">Google Sign Up</button>  
+      <button onClick={handleGoogleSubmit} className="btn btn-primary">Google Sign Up</button>  
             <button className="btn btn-primary">Git Hub Sign Up </button>  
        </div>
     );

@@ -5,8 +5,9 @@ import logo from '../../Images/logo.png';
 import './Header.css'
 
 const Header = () => {
-  const {user}= useContext(AuthContext);
-  console.log(user.displayName)
+      const {user} = useContext(AuthContext);
+      // console.log(user.displayName)
+ 
     return (
         <div className="navbar bg-base-100">
         <div className="navbar-start">

@@ -1,13 +1,41 @@
-import React from 'react';
+import { GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/UserContext';
 
 const Login = () => {
+  const {signIn,googleSignIn} = useContext(AuthContext);
+  // const {googleSignIn} = useContext{AuthContext}
+  const googleProvider = new GoogleAuthProvider();
+  const handleGoogleSubmit = () =>{
+    console.log('hello')
+    googleSignIn(googleProvider)
+    .then(result =>{
+      const user = result.user;
+      console.log(user.email)
+    })
+    .catch(error =>{
+      console.error(error);
+    })
+  }
+
+  
     const handleSubmit = event =>{
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email , password)
+        // console.log(email , password)
+        signIn(email, password)
+        .then(result =>{
+          const user = result.user;
+          console.log(user.email)
+        })
+        .catch(error =>{
+          console.error(error);
+        })
+
+        form.reset()
     }
     return (
 
@@ -41,7 +69,7 @@ const Login = () => {
                       </label>
                     </div>
                     <div className="form-control mt-6">
-                      <button className="btn btn-primary">Login</button>
+                      <button onSubmit={handleSubmit} className="btn btn-primary">Login</button>
                     </div>
                   </div>
                 </div>
@@ -50,7 +78,7 @@ const Login = () => {
             </form>
             
          
-            <button className="btn btn-primary">Google Login</button>  
+            <button onClick={handleGoogleSubmit} className="btn btn-primary">Google Login</button>  
             <button className="btn btn-primary">Git Hub Login</button>  
         </div>
     );
