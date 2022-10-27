@@ -5,9 +5,15 @@ import logo from '../../Images/logo.png';
 import './Header.css'
 
 const Header = () => {
-      const {user} = useContext(AuthContext);
-      // console.log(user.displayName)
- 
+      const {user, logOut} = useContext(AuthContext);
+      // console.log(user)
+ const handleSignOut= ()=>{
+    logOut()
+    .then(()=>{})
+    .catch(error =>console.error(error))
+ };
+
+
     return (
         <div className="navbar bg-base-100">
         <div className="navbar-start">
@@ -27,8 +33,16 @@ const Header = () => {
             <Link className='link' to='/faq'>FAQ</Link>
             <Link className='link' to='/blog'>Blog</Link>
             <Link className='link' to='/theme'>Theme</Link>
-            <Link className='link' to='/login'>Login</Link>
-            {user?.displayName && <span>{user?.displayName}</span>}
+            
+            {user?.email && <span>{user?.email}</span>}
+
+            {
+              user?.email?
+              <button onClick={handleSignOut} className="btn btn-xs">Sign Out</button>
+              : <Link className='link' to='/login'>Login</Link>
+            }
+            
+
           </ul>
         </div>
         <div className="navbar-end">

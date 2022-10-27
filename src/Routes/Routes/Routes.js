@@ -1,7 +1,9 @@
+import { async } from "@firebase/util";
 import { createBrowserRouter } from "react-router-dom";
 
 import Main from '../../Layout/Main'
 import Blog from "../../pages/Blog/Blog";
+import CourseDetails from "../../pages/CourseDetails/CourseDetails";
 import Courses from "../../pages/Courses/Courses";
 import Faq from "../../pages/Faq/Faq";
 import Home from "../../pages/Home/Home";
@@ -23,8 +25,21 @@ export const routes = createBrowserRouter([
             }  ,
             {
                 path: '/courses',
+                loader: async () =>{
+                   return fetch('http://localhost:5000/topic')
+                },
                 element:<Courses></Courses>
-            }  ,
+            },
+            {
+                path:'/categorey/:categoreyId',
+                loader: async ({params})=>{
+                    console.log(params.categoreyId)
+                    return fetch (`http://localhost:5000/topic/${params.categoreyId}`)
+                },
+                 
+                 element:<CourseDetails></CourseDetails>
+
+            },
             {
                 path:'/faq',
                 element:<Faq></Faq>
@@ -42,5 +57,9 @@ export const routes = createBrowserRouter([
                 element:<Register></Register>
             }
         ]
+    },
+    {
+        path:'*',
+        element:<h1 className="text-red-400 text-5xl">The page you are loooking for not found</h1>
     }
 ])

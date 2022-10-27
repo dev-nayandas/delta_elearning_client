@@ -5,6 +5,7 @@ import { AuthContext } from '../../Context/UserContext';
 
 const Register = () => {
   const {user, googleSignIn,createUser } = useContext(AuthContext);
+  console.log(createUser)
   const googleProvider = new GoogleAuthProvider();
   const handleGoogleSubmit = () =>{
    
@@ -12,7 +13,9 @@ const Register = () => {
     googleSignIn(googleProvider)
     .then(result =>{
       const user = result.user;
-      console.log(user.email)
+      
+      console.log(user.email);
+      
     })
     .catch(error =>{
       console.error(error);
@@ -31,8 +34,9 @@ const Register = () => {
         createUser(email, password)
         .then(result=>{
           const user = result.user;
-     
+            
           console.log(user)
+          form.reset()
         })
         .catch(error =>{
           console.error(error);

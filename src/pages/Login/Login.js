@@ -29,13 +29,14 @@ const Login = () => {
         signIn(email, password)
         .then(result =>{
           const user = result.user;
-          console.log(user.email)
+          console.log(user)
+          form.reset()
         })
         .catch(error =>{
           console.error(error);
         })
 
-        form.reset()
+        
     }
     return (
 

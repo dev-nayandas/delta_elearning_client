@@ -1,16 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import Topic from './Topic';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Sidebar = () => {
-    const [topic, setTopic] =  useState();
-    useEffect(()=>{
-        fetch('http://localhost:5000/topic')
-        .then(res=>res.json())
-        .then(data=>setTopic(data))
-    },[])
+const Sidebar = ({categorey}) => {
+    const {id, name} = categorey;
     return (
         <div>
-          
+            <Link><h2 className='mt-4'>{name}</h2></Link>
         </div>
     );
 };
