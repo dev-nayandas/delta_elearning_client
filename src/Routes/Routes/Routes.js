@@ -3,12 +3,14 @@ import { createBrowserRouter } from "react-router-dom";
 
 import Main from '../../Layout/Main'
 import Blog from "../../pages/Blog/Blog";
+import ChekOut from "../../pages/CheckOut/ChekOut";
 import CourseDetails from "../../pages/CourseDetails/CourseDetails";
 import Courses from "../../pages/Courses/Courses";
 import Faq from "../../pages/Faq/Faq";
 import Home from "../../pages/Home/Home";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
+import PrivateRoute from "./PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -55,6 +57,10 @@ export const routes = createBrowserRouter([
             {
                 path:'/register',
                 element:<Register></Register>
+            },
+            {
+                path:'/checkout',
+                element:<PrivateRoute><ChekOut></ChekOut></PrivateRoute>
             }
         ]
     },
