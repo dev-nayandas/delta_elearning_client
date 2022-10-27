@@ -2,7 +2,7 @@ import React from 'react';
 
 const ContactUs = () => {
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen bg-base-200 bg-gradient-to-r from-violet-500 to-fuchsia-500">
             
   <div className="hero-content flex-col lg:flex-row-reverse">
    

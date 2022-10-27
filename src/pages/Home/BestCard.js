@@ -3,7 +3,7 @@ import React from 'react';
 const BestCard = () => {
     return (
         <div className='mx-5 my-5'>
-            <h2 className='text-2xl'>Why we are best</h2>
+            <h2 className='mt-4 mb-2 text-3xl text-purple-800' >Why Choose Us?</h2>
             <div className='flex  my-5'> 
        
        <div className="card w-96 bg-primary text-primary-content mx-2">
