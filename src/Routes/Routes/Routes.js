@@ -28,7 +28,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses',
                 loader: async () =>{
-                   return fetch('http://localhost:5000/topic')
+                   return fetch('https://firebase-assignment-10-server.vercel.app/topic')
                 },
                 element:<Courses></Courses>
             },
@@ -36,7 +36,7 @@ export const routes = createBrowserRouter([
                 path:'/categorey/:categoreyId',
                 loader: async ({params})=>{
                     console.log(params.categoreyId)
-                    return fetch (`http://localhost:5000/topic/${params.categoreyId}`)
+                    return fetch (`https://firebase-assignment-10-server.vercel.app/topic/${params.categoreyId}`)
                 },
                  
                  element:<CourseDetails></CourseDetails>
@@ -62,7 +62,7 @@ export const routes = createBrowserRouter([
             {
                 path:'/checkout/:checkoutId',
                 loader: async ({params}) =>{
-                    return fetch(`http://localhost:5000/topic/${params.checkoutId}`)
+                    return fetch(`https://firebase-assignment-10-server.vercel.app/topic/${params.checkoutId}`)
                  },
                 element:<PrivateRoute><ChekOut></ChekOut></PrivateRoute>
             },

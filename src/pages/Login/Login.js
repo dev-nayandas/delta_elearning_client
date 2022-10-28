@@ -38,11 +38,12 @@ const Login = () => {
           const user = result.user;
           console.log(user)
           form.reset()
-          setError('')
+          // setError('')
           navigate(from, {replace:true})
         })
         .catch(error =>{
           console.error(error);
+          setError(error.message)
         })
 
         
@@ -77,7 +78,7 @@ const Login = () => {
                       <label className="label">
                         <p> New to Delta Learning Hub? </p><a href="./register" className="label-text-alt link link-hover">Register Now</a>
                       </label>
-                      {error}
+                    
                     </div>
                     <div className="form-control mt-6">
                       <button onSubmit={handleSubmit} className="btn btn-primary">Login</button>
