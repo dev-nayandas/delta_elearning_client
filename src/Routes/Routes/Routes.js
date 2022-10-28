@@ -1,6 +1,5 @@
 import { async } from "@firebase/util";
 import { createBrowserRouter } from "react-router-dom";
-
 import Main from '../../Layout/Main'
 import Blog from "../../pages/Blog/Blog";
 import ChekOut from "../../pages/CheckOut/ChekOut";
@@ -59,9 +58,13 @@ export const routes = createBrowserRouter([
                 element:<Register></Register>
             },
             {
-                path:'/checkout',
+                path:'/checkout/:checkoutId',
+                loader: async ({params}) =>{
+                    return fetch(`http://localhost:5000/topic/${params.checkoutId}`)
+                 },
                 element:<PrivateRoute><ChekOut></ChekOut></PrivateRoute>
-            }
+            },
+           
         ]
     },
     {

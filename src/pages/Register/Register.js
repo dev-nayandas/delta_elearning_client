@@ -1,11 +1,14 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 
 
 const Register = () => {
+  
   const {user, googleSignIn,createUser } = useContext(AuthContext);
   console.log(createUser)
+  const navigate = useNavigate();
   const googleProvider = new GoogleAuthProvider();
   const handleGoogleSubmit = () =>{
    
@@ -34,7 +37,7 @@ const Register = () => {
         createUser(email, password)
         .then(result=>{
           const user = result.user;
-            
+          navigate('/home')  
           console.log(user)
           form.reset()
         })
@@ -55,25 +58,25 @@ const Register = () => {
                 <label className="label">
                   <span className="label-text">Name</span>
                 </label>
-                <input type="text" name='name' placeholder="name" className="input input-bordered" />
+                <input type="text" name='name' placeholder="name" className="input input-bordered" required />
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Profile Picture</span>
+                  <span className="label-text">Photo Url</span>
                 </label>
-                <input type="file" name='photoURL' placeholder="name" className="input input-bordered" />
+                <input type="text" name='photoURL' placeholder="name" className="input input-bordered" required/>
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input type="email" name='email' placeholder="email" className="input input-bordered" />
+                <input type="email" name='email' placeholder="email" className="input input-bordered" required />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="password" name='password' placeholder="password" className="input input-bordered" />
+                <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                 
                 <label className="label">
                   <p>Already have and account? </p>   <a href="/login" className="label-text-alt link link-hover">Login Now</a>
