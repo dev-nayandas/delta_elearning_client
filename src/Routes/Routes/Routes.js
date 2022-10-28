@@ -5,6 +5,7 @@ import Blog from "../../pages/Blog/Blog";
 import ChekOut from "../../pages/CheckOut/ChekOut";
 import CourseDetails from "../../pages/CourseDetails/CourseDetails";
 import Courses from "../../pages/Courses/Courses";
+import ErrorPage from "../../pages/ErrorPage/ErrorPage";
 import Faq from "../../pages/Faq/Faq";
 import Home from "../../pages/Home/Home";
 import Login from "../../pages/Login/Login";
@@ -69,6 +70,6 @@ export const routes = createBrowserRouter([
     },
     {
         path:'*',
-        element:<h1 className="text-red-400 text-5xl">The page you are loooking for not found</h1>
+        element:<ErrorPage></ErrorPage>
     }
 ])
