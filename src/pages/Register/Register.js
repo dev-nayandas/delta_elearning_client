@@ -88,8 +88,8 @@ const Register = () => {
         
       </form>
         
-      <button onClick={handleGoogleSubmit} className="btn btn-primary">Google Sign Up</button>  
-            <button className="btn btn-primary">Git Hub Sign Up </button>  
+      <button onClick={handleGoogleSubmit} className="btn btn-primary mb-8 mr-2">Google Sign Up</button>  
+            <button className="btn btn-primary mb-8">Git Hub Sign Up </button>  
        </div>
     );
 };

@@ -82,8 +82,8 @@ const Login = () => {
             </form>
             
          
-            <button onClick={handleGoogleSubmit} className="btn btn-primary">Google Login</button>  
-            <button className="btn btn-primary">Git Hub Login</button>  
+            <button onClick={handleGoogleSubmit} className="btn btn-primary mr-2 mb-8">Google Login</button>  
+            <button className="btn btn-primary mb-8">Git Hub Login</button>  
         </div>
     );
 };

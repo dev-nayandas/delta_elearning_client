@@ -21,7 +21,7 @@ const Header = () => {
           <img src={logo} />
         </div>
       
-          <Link className="btn btn-ghost normal-case text-xl">Delta E-Learning Hub</Link>
+          <Link to='/home' className="btn btn-ghost normal-case text-xl">Delta E-Learning Hub</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
