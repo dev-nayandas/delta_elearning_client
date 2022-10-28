@@ -18,6 +18,7 @@ const Login = () => {
     .then(result =>{
       const user = result.user;
       console.log(user.email)
+      navigate('/checkout')
     })
     .catch(error =>{
       console.error(error);

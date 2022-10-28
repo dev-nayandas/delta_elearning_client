@@ -25,16 +25,31 @@ const Header = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
-            {/* <li><a>Courses</a></li>
-            <li><a>FAQ</a></li>
-            <li><a>BLOG</a></li>
-            <li><a>Theme</a></li> */}
             <Link className='link' to='/courses'>Courses</Link>
             <Link className='link' to='/faq'>FAQ</Link>
             <Link className='link' to='/blog'>Blog</Link>
             <Link className='link' to='/theme'>Theme</Link>
-            
-            {user?.email && <span>{user?.email}</span>}
+
+
+           
+        {
+          user?.photoURL?
+          <div style={{height:'30px', width:'30px', }} className="avatar mr-3">
+               <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <img alt={user?.displayName}  src={user?.photoURL} />
+                </div>
+          </div>
+          : <p>avatar</p>
+
+        }
+
+
+
+
+
+
+            {/* <image  alt='' src={user.photoURL}></image> */}
+            {/* {user?.displayName && <span className='mr-2'>{user?.displayName}</span>} */}
 
             {
               user?.email?

@@ -9,7 +9,7 @@ const Blog = () => {
 
 
 
-            <h2 className='text-2xl'>Question 02</h2>
+            <h2 className='text-2xl'>Question 02. Why are you using firebase?What other option do you have to implement authenication?</h2>
             <p className='mb-8'>Ans.Firebase helps you develop high-quality apps, grow your user base, and earn more money. Each feature works independently, and they work even better together.MongoDB.
             Oracle Database.
             Amazon Redshift.
