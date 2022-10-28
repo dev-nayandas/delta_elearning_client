@@ -1,10 +1,12 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/'
   
   const {signIn,googleSignIn} = useContext(AuthContext);
   // const {googleSignIn} = useContext{AuthContext}
@@ -33,7 +35,7 @@ const Login = () => {
           const user = result.user;
           console.log(user)
           form.reset()
-          navigate('/checkout')
+          navigate(from, {replace:true})
         })
         .catch(error =>{
           console.error(error);
@@ -64,7 +66,7 @@ const Login = () => {
                       <label className="label">
                         <span className="label-text">Password</span>
                       </label>
-                      <input type="text" name='password' placeholder="password" className="input input-bordered" />
+                      <input type="password" name='password' placeholder="password" className="input input-bordered" />
                       <label className="label">
                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                       </label>
