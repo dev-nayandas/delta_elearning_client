@@ -1,9 +1,10 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 
 const Login = () => {
+  const [error, setError] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || '/'
@@ -20,6 +21,7 @@ const Login = () => {
     })
     .catch(error =>{
       console.error(error);
+      setError(error.message)
     })
   }
 
@@ -35,6 +37,7 @@ const Login = () => {
           const user = result.user;
           console.log(user)
           form.reset()
+          setError('')
           navigate(from, {replace:true})
         })
         .catch(error =>{
@@ -49,7 +52,7 @@ const Login = () => {
 
         
         <div>
-           
+          
             <form onSubmit={handleSubmit} className="hero min-h-screen bg-base-200">
               
               <div className="hero-content flex-col lg:flex-row-reverse">
@@ -73,6 +76,7 @@ const Login = () => {
                       <label className="label">
                         <p> New to Delta Learning Hub? </p><a href="./register" className="label-text-alt link link-hover">Register Now</a>
                       </label>
+                      {error}
                     </div>
                     <div className="form-control mt-6">
                       <button onSubmit={handleSubmit} className="btn btn-primary">Login</button>
@@ -80,7 +84,10 @@ const Login = () => {
                   </div>
                 </div>
               </div>
-              
+              <from className='text-red-500'>
+                {error}
+              </from>
+             
             </form>
             
          
