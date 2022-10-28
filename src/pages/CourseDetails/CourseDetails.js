@@ -1,15 +1,34 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import NavBar from './NavBar';
+import {ReactToPdf} from 'react-to-pdf';
+import Pdf from 'react-to-pdf'
+const ref = createRef()
 
 const CourseDetails = () => {
     const details = useLoaderData();
     const {id,name,price,title,img,description} = details;
     console.log(details)
+
+
+ 
+
     return (
         <div>
+
           <div style={{height:'100px'}} className='bg-green-200 align-middle justify-center'>
-          <button className="btn btn-wide ">Download Pdf</button>
+
+          <Pdf targetRef={ref} filename="code-example.pdf">
+              {({toPdf}) => <button onClick={toPdf}  className="btn btn-wide mt-8 ">Download Pdf</button>}
+          </Pdf>
+
+          <div ref={ref} className="mt-8">
+            <h>Learn Programming language easily</h>
+            <p>Programming is the process of creating a set of instructions that tell a computer how to perform a task. Programming can be done using a variety of computer programming languages, such as JavaScript, Python, and C++.</p>
+
+          </div>
+
+          
           </div>
          
           <div className="hero min-h-screen bg-base-200">
