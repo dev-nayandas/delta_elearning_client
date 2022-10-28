@@ -1,5 +1,5 @@
-Site name : Delta E-Learning Hub
-Site lonk :
+Site name : Delta E-Learning Hub <br>
+Site lonk : <br>
 Features and functionality 
 - This is E-Leanrning platfrom
 - You can konw details about about us from this site 
