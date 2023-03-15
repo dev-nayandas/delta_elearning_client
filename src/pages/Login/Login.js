@@ -54,7 +54,9 @@ const Login = () => {
 
         
         <div>
-          
+          <h1 className='text-primary'>User credential for test</h1>
+          <h1 className='text-primary'>email address : siyam@gmail.com</h1>
+          <h1 className='text-primary'>Password : 123456</h1>
             <form onSubmit={handleSubmit} className="hero min-h-screen bg-base-200">
               
               <div className="hero-content flex-col lg:flex-row-reverse">
